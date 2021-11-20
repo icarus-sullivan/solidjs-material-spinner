@@ -20,7 +20,7 @@ yarn add solidjs-material-spinner
 |radius |Number |40 |The radius of the spinner |
 |color |String |#333333 |The color of the spinner |
 |stroke |Number |5 |The spinner's stroke width |
-|visible|Boolean |true |Whether to show the spinner or not|
+|visible|() => false|true |Whether to show the spinner or not|
 
 ### Usage
 Example:
