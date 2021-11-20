@@ -1,10 +1,12 @@
 import { createEffect, mergeProps, Show } from 'solid-js';
 
+type VisibleProp = () => boolean;
+
 interface Props {
   radius?: number | string,
   color?: string,
   stroke?: number | string,
-  visible?: boolean,
+  visible?: VisibleProp,
   [key: string]: any
 }
 
@@ -12,6 +14,7 @@ const DEFAULT_PROPS = {
   color: '#333',
   radius: 80,
   stroke: 10,
+  visible: () => true,
 }
 
 const css = `
@@ -70,10 +73,7 @@ const css = `
 const ID = 'spinner_id_style';
 
 export default (props: Props) => {
-  const { visible = true, color, stroke, radius } = mergeProps(DEFAULT_PROPS, props);
-  if (!visible) {
-    return null;
-  }
+  const { visible, color, stroke, radius } = mergeProps(DEFAULT_PROPS, props);
 
   createEffect(() => {
     if (typeof window === 'undefined') {
@@ -97,7 +97,7 @@ export default (props: Props) => {
   })
 
   return (
-    <Show when={visible}>
+    <Show when={visible()}>
       <div
           class="react-spinner-material"
           style={{
