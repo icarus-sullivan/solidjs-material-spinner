@@ -18,7 +18,7 @@ const DEFAULT_PROPS = {
 }
 
 const css = `
-.react-spinner-material {
+.solidjs-spinner-material {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -99,7 +99,7 @@ export default (props: Props) => {
   return (
     <Show when={visible()}>
       <div
-          class="react-spinner-material"
+          class="solidjs-spinner-material"
           style={{
             width: `${radius}px`,
             height: `${radius}px`,
