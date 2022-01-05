@@ -1,4 +1,4 @@
-import { createEffect, mergeProps, Show } from 'solid-js';
+import { mergeProps, Show } from 'solid-js';
 
 import './style.scss';
 
@@ -20,27 +20,6 @@ const DEFAULT_PROPS = {
 
 export default (props: Props) => {
   const { visible, color, stroke, radius } = mergeProps(DEFAULT_PROPS, props);
-
-  createEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-  
-    if (!document.getElementById(ID)) {
-      const head = document.head || document.getElementsByTagName('head')[0];
-      const sprc: any = document.createElement('style');
-      sprc.id = ID;
-      sprc.type = "text/css";
-      if( sprc.styleSheet ) {
-        sprc.styleSheet.cssText = css;
-      } else {
-        sprc.appendChild(document.createTextNode(css));
-      }
-      if( head ) {
-        head.appendChild(sprc);
-      }
-    }
-  })
 
   return (
     <Show when={visible()}>

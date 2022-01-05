@@ -1,6 +1,6 @@
 {
   "name": "solidjs-material-spinner",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Chris Sullivan",
   "license": "MIT",
   "main": "lib/index.js",
